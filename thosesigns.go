@@ -3,5 +3,5 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Printf("Number: %g", 2.343332776767) //this shows all of it (usual exponential stuff)
+	fmt.Printf("Number: %s, %q", "bruh", "bruh") //s is for string, q is for quoted string
 }
