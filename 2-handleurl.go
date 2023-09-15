@@ -5,7 +5,7 @@ import (
 	"net/url"
 )
 
-const myurl string = "https://courses.learncodeonline.in/learn/Complete-iOS-developer-swiftui"
+const myurl string = "https://courses.learncodeonline.in:3000/learn/Complete-iOS-developer-swiftui"
 
 func main() {
 	fmt.Println("URL handling with Golang")
@@ -20,7 +20,7 @@ func main() {
 	fmt.Println(result.Host)
 	fmt.Println(result.Path)
 	fmt.Println(result.Port())
-	//fmt.Println(result.RawQuery)
+	fmt.Println(result.RawQuery)
 
 	// qparams := result.Query()
 	// fmt.Printf("type? %T \n", qparams)
