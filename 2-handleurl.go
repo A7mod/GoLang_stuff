@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/url"
+)
 
 const myurl string = "https://courses.learncodeonline.in/learn/Complete-iOS-developer-swiftui"
 
@@ -10,8 +13,8 @@ func main() {
 
 	fmt.Println(myurl)
 
-	parsing
-	result := url.Parse(myurl)
+	//parsing
+	result, _ := url.Parse(myurl)
 
 	fmt.Println(result.Scheme)
 	// fmt.Println(result.Host)
