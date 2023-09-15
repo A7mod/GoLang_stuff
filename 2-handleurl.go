@@ -19,6 +19,6 @@ func main() {
 	// fmt.Println(result.Port())
 	// fmt.Println(result.RawQuery)
 
-	qparams := result.Query()
-	fmt.Printf("type? %T \n", qparams)
+	// qparams := result.Query()
+	// fmt.Printf("type? %T \n", qparams)
 }
