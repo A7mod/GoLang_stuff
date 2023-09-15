@@ -11,7 +11,7 @@ func main() {
 	fmt.Println(myurl)
 
 	parsing
-	result, _ := url.Parse(myurl)
+	result := url.Parse(myurl)
 
 	fmt.Println(result.Scheme)
 	// fmt.Println(result.Host)
