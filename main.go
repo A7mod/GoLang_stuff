@@ -26,6 +26,6 @@ func PerformGetRequest() {
 
 	content, _ := ioutil.ReadAll(response.Body)
 
-	fmt.Println(string(content))
+	fmt.Println(string(content)) // way 1 to do it
 
 }
