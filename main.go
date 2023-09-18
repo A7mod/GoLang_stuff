@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 	"strings"
@@ -10,6 +11,7 @@ import (
 func main() {
 	fmt.Println("Welcome to web server : ")
 	//PerformGetRequest()
+	PerformPostJsonRequest()
 }
 
 func PerformGetRequest() {
@@ -35,5 +37,32 @@ func PerformGetRequest() {
 
 	fmt.Println("Bytecount is :", byteCount)
 	fmt.Println(responseString.String()) // way 2 by using builder from Strings
+
+}
+
+func PerformPostJsonRequest() {
+	const myurl = "http://localhost:8000/post"
+
+	// fake json payload?
+
+	requestBody := strings.NewReader(`
+	   {
+		  "coursename": "Let's go with golang",
+		  "price" : 0,
+		  "platform" : "youtube.com"
+       }
+	`)
+
+	response, err := http.Post(myurl, "application/json", requestBody)
+
+	if err != nil {
+		panic(err)
+	}
+
+	defer response.Body.Close()
+
+	content, _ := io.ReadAll(response.Body)
+
+	fmt.Println(string(content))
 
 }
