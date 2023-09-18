@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"net/http"
 )
 
@@ -23,7 +24,7 @@ func PerformGetRequest() {
 	fmt.Println("Status code :", response.StatusCode)
 	fmt.Println("COntent length :", response.ContentLength)
 
-	content, _ := iotuil.ReadAll(response.Body)
+	content, _ := ioutil.ReadAll(response.Body)
 
 	fmt.Println(string(content))
 
