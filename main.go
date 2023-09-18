@@ -66,3 +66,23 @@ func PerformPostJsonRequest() {
 	fmt.Println(string(content))
 
 }
+
+func PerformPostFormRequest() {
+	const myurl = "http://localhost:8000/postform"
+
+	// formdata
+
+	data := url.Values{}
+	data,Add("firstname", "jignesh")
+	data,Add("lastname", "Mehta")
+	data,Add("email", "jigneshmehta@ballam.com")
+
+	response, err := http.PostForm(myurl, data)
+	if err != nil {
+		panic(err)
+	}
+
+	defer response.Body.Close()
+
+	content, _ := io.ReadAll(response.Body)
+}
