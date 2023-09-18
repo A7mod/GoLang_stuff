@@ -9,8 +9,8 @@ type course struct {
 	Name     string `json:"coursename"`
 	Price    int
 	Platform string   `json: "website"`
-	Password string   `json:"-"`
-	Tags     []string `json:"tags,omitempty"`
+	Password string   `json:"-"`              // this is important for passwords and secrets
+	Tags     []string `json:"tags,omitempty"` // this is a nice thing
 }
 
 func main() {
