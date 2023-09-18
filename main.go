@@ -9,7 +9,7 @@ import (
 
 func main() {
 	fmt.Println("Welcome to web server : ")
-	PerformGetRequest()
+	//PerformGetRequest()
 }
 
 func PerformGetRequest() {
