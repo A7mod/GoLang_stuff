@@ -28,7 +28,7 @@ func EncodeJson() {
 
 	// package this data as JSON data
 
-	finalJson, err := json.Marshal(devCourses)
+	finalJson, err := json.MarshalIndent(devCourses, "", "\t") //cool stuff
 	if err != nil {
 		panic(err)
 	}
