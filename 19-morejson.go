@@ -6,11 +6,11 @@ import (
 )
 
 type course struct {
-	Name     string
+	Name     string `json:"coursename"`
 	Price    int
-	Platform string
-	Password string
-	Tags     []string
+	Platform string   `json: "website"`
+	Password string   `json:"-"`
+	Tags     []string `json:"tags,omitempty"`
 }
 
 func main() {
