@@ -11,7 +11,8 @@ import (
 func main() {
 	fmt.Println("Welcome to web server : ")
 	//PerformGetRequest()
-	PerformPostJsonRequest()
+	// PerformPostJsonRequest()
+	PerformPostFormRequest()
 }
 
 func PerformGetRequest() {
@@ -85,4 +86,6 @@ func PerformPostFormRequest() {
 	defer response.Body.Close()
 
 	content, _ := io.ReadAll(response.Body)
+
+	fmt.Println(string(content))
 }
