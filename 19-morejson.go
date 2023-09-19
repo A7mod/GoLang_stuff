@@ -36,3 +36,15 @@ func EncodeJson() {
 	fmt.Printf("%s \n", finalJson)
 
 }
+
+func DecodeJson() {
+	jsonDataFromWeb := []byte(`
+	{
+		"coursename": "ReactJS Bootcamp",
+		"Price": 299,
+		"Platform": "Learnonline.in",
+		"tags": ["web-dev","js"]
+    }
+	`)
+
+}
