@@ -67,4 +67,8 @@ func DecodeJson() {
 	json.Unmarshal(jsonDataFromWeb, &myOnlineData)
 	fmt.Printf("%#v\n", myOnlineData)
 
+	for z, v := range myOnlineData {
+		fmt.Printf("key is %v and value is %v, und Type is : %T \n", z, v, v)
+	}
+
 }
