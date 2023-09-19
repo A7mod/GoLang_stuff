@@ -61,4 +61,10 @@ func DecodeJson() {
 		fmt.Println("JSON WAS NOT VALID MATE")
 	}
 
+	// some cases where you just want to add data to key value...
+
+	var myOnlineData map[string]interface{} //interface type is defined as a set of method signatures..
+	json.Unmarshal(jsonDataFromWeb, &myOnlineData)
+	fmt.Printf("%#v\n", myOnlineData)
+
 }
