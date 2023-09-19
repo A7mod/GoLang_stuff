@@ -15,7 +15,8 @@ type course struct {
 
 func main() {
 	fmt.Println("JSON items")
-	EncodeJson()
+	// EncodeJson()
+	DecodeJson()
 }
 
 func EncodeJson() {
@@ -44,7 +45,20 @@ func DecodeJson() {
 		"Price": 299,
 		"Platform": "Learnonline.in",
 		"tags": ["web-dev","js"]
-    }
+    },
 	`)
+
+	var devCourses course
+
+	checkValid := json.Valid(jsonDataFromWeb)
+
+	if checkValid {
+		fmt.Println("JSON was valid")
+		json.Unmarshal(jsonDataFromWeb, &devCourses)
+		fmt.Printf("%#v \n", devCourses)
+
+	} else {
+		fmt.Println("JSON WAS NOT VALID MATE")
+	}
 
 }
