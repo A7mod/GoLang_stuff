@@ -45,7 +45,7 @@ func DecodeJson() {
 		"Price": 299,
 		"Platform": "Learnonline.in",
 		"tags": ["web-dev","js"]
-    },
+    }
 	`)
 
 	var devCourses course
