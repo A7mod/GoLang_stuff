@@ -13,7 +13,6 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	"go.mongodb.org/mongo-driver/x/mongo/driver/mongocrypt/options"
 )
 
 const connectionString = "mongodb+srv://general:a7mod@atlascluster.lmdzbps.mongodb.net/?retryWrites=true&w=majority"
@@ -92,7 +91,8 @@ func deleteOneMovie(movieId string) {
 // delete all records from mongoDB
 
 func deleteAllMovie() int64 {
-	deleteResult, err := collection.DeleteMany(context.Background(), bson.D{{}}, filter)
+
+	deleteResult, err := collection.DeleteMany(context.Background(), bson.D{{}}, nil)
 
 	if err != nil {
 		log.Fatal(err)
@@ -128,13 +128,13 @@ func getAllMovies() []primitive.M {
 
 // actual controllers - what actually goes in the file
 
-func GetMyAllMovies(w http.ResponseWriter, r *http.Response) {
+func GetMyAllMovies(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Context-Type", "application/x-www-form-urlencode")
 	allMovies := getAllMovies()
 	json.NewEncoder(w).Encode(allMovies)
 }
 
-func CreateMovie(w http.ResponseWriter, r *http.Response) {
+func CreateMovie(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Context-Type", "application/x-www-form-urlencode")
 	w.Header().Set("Allow-Control-Allow-Methods", "POST")
 	var movie model.Netflix
@@ -146,7 +146,7 @@ func CreateMovie(w http.ResponseWriter, r *http.Response) {
 
 // marking movie as watched...
 
-func MarkAsWatched(w http.ResponseWriter, r *http.Response) {
+func MarkAsWatched(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Context-Type", "application/x-www-form-urlencode")
 	w.Header().Set("Allow-Control-Allow-Methods", "PUT")
 
@@ -158,7 +158,7 @@ func MarkAsWatched(w http.ResponseWriter, r *http.Response) {
 
 // delete a movie
 
-func DeleteOneMovie(w http.ResponseWriter, r *http.Response) {
+func DeleteOneMovie(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Context-Type", "application/x-www-form-urlencode")
 	w.Header().Set("Allow-Control-Allow-Methods", "DELETE")
 
@@ -168,7 +168,7 @@ func DeleteOneMovie(w http.ResponseWriter, r *http.Response) {
 
 }
 
-func DeleteAllMovies(w http.ResponseWriter, r *http.Response) {
+func DeleteAllMovies(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Context-Type", "application/x-www-form-urlencode")
 	w.Header().Set("Allow-Control-Allow-Methods", "DELETE")
 
