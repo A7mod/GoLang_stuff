@@ -1,3 +1,3 @@
-module webreq
+module github.com/a7mod/webrequest
 
-go 1.21.6
+go 1.22.0
