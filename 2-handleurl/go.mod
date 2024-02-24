@@ -1,3 +1,3 @@
-module handleurl
+module github.com/a7mod/handleurl
 
-go 1.21.6
+go 1.22.0
