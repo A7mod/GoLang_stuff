@@ -5,7 +5,7 @@ package main
 import "fmt"
 
 func main() {
-	channel := make(chan string)
+	channel := make(chan string, 1) // step 3 : adding capacity to the channel, makes it a buffered channel, and we no longer experience deadlock
 
 	// trying to understand if this works this way. This is step 2. It will fail (deadlock)
 	channel <- "First Message"
@@ -21,4 +21,5 @@ func main() {
 	// so when we send the "message" from the task go routine to the main go routin, to receive the message
 	// otherwise it will cause a congestion, since the channel has 0 capacity
 
+	// apparently we can change the capacity of a channel, which is called a buffered channel more on step 3 above.
 }
