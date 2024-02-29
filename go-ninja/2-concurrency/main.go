@@ -13,7 +13,7 @@ func main() {
 
 	evilNinja := "Tommy"
 	go attack(evilNinja)
-	time.Sleep(time.Second * 2)
+	//time.Sleep(time.Second * 2) // this is making it delay more so, we gon remove this
 }
 
 func attack(target string) {
