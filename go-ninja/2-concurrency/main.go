@@ -14,7 +14,7 @@ func main() {
 	smokeSignal := make(chan bool) // this is a boolean channel (true or false for when we're done)
 	evilNinja := "Tommy"
 	go attack(evilNinja, smokeSignal) // passed as argument? Not the right terminology
-	smokeSignal <- false              // fatal error: all goroutines are asleep - deadlock! (we will use buffered channels to avoid this deadlock)
+	// smokeSignal <- false              // fatal error: all goroutines are asleep - deadlock! (we will use buffered channels to avoid this deadlock)
 	//time.Sleep(time.Second * 2) // this is making it delay more so, we gon remove this
 	fmt.Println(<-smokeSignal) // receiving the message
 }
