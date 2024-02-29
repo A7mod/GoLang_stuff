@@ -6,6 +6,10 @@ import (
 )
 
 func main() {
+	now := time.Now()
+	defer func() {
+		fmt.Println(time.Since(now))
+	}() //this is a function call, that's how this defer func works
 
 	evilNinja := "Tommy"
 	go attack(evilNinja)
