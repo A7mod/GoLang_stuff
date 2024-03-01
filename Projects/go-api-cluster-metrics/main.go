@@ -39,7 +39,7 @@ func (uh userHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func getUsers(w http.ResponseWriter, r *http.Request) {
+func getUsers(w http.ResponseWriter, r *http.Request) { //willhave to figure this shit out.
 	b, err := json.Marshal(users)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
