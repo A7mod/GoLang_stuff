@@ -12,6 +12,17 @@ func main() {
 	channel := make(chan string)
 	//numRounds := 3
 	go throwNinjaStar(channel)
+
+	////////
+	// for {
+	// 	message, open := <-channel      // htis is what i shappening behind the scenes, for the for loop with range.
+	// 	if !open {
+	// 		break
+	// 	}
+	// 	fmt.Println(message)
+	// }
+	/////////
+
 	for message := range channel { // after the third iteration, the for loop will be looking for more items to print in the message from the channel
 		fmt.Println(message)
 	}
